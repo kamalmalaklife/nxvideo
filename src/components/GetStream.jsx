@@ -18,6 +18,9 @@ const GetStream = () => {
     extension: ".m3u8?hi&auth=",
   };
 
+  // webm files work on Android at the moment,
+  // this manipulates the generated URL to be webm incase we are running
+  // On Android
   if (Platform.OS == "android") {
     urlFetcher.folder = "/media/";
     urlFetcher.extension = ".webm?resolution=1080p&auth=";
@@ -124,8 +127,6 @@ const GetStream = () => {
           title="Print Camera Url"
           onPress={() => console.log(cameraURL)}
         />
-
-        <Button title="Toggle Source"></Button>
       </View>
     );
   } else {
